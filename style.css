@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding: 1rem;
+    background-color:burlywood;
+}
+
+h1{
+    color: #1f2a38;
+    text-align: center;
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 2px #181f29;
+    margin: 1rem 0;
+}
+.masonry {
+    margin: auto;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 10px;
+    padding: 10px;
+}
+
+.masonry .item {
+    position: relative;
+    overflow: hidden;
+    height: 250px; /* Default height for the items */
+}
+
+.masonry img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire item */
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* Make some images span multiple rows or columns */
+.masonry .item:nth-child(2n) {
+    grid-row: span 2;
+    height: 520px; /* Adjust height for larger items */
+}
+
+.masonry .item:nth-child(3n) {
+    grid-column: span 1;
+}
+
+/* Hover effect */
+.masonry img:hover {
+    transform: scale(1.05);
+}
+.masonry .item a{
+    position: absolute;
+    z-index: 1000;
+    bottom:1rem;
+    right: 1rem;
+    .fa-circle-arrow-down{
+       font-size: 2rem;
+        color: black;
+        transition: all 0.2s ease-in-out;
+    }
+}
+.masonry .item .fa-circle-arrow-down:hover{
+    color: #f7f7f7;
+}
+
+.like{
+    position: absolute;
+    top:1rem;
+    right: 1rem;
+    i{
+        color: bisque;
+        font-size: 2rem;
+    }
+}
+.active{
+    color: red!important;
+    animation: like 0.6s ease-in-out 1;
+    animation-direction: alternate;
+}
+@keyframes like {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.5);
+    }
+    100%{
+        transform: scale(1);
+
+    }
+    
+}
